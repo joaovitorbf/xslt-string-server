@@ -1,10 +1,12 @@
-```diff
-- ATTENTION! THIS SERVER IS INSECURE IF YOU ALLOW USER INPUT! XSLT INJECTION CAN RUN ARBITRARY CODE INSIDE THE CONTAINER!
-```
 # xslt-string-server
 Transform XML using SaxonJS's XSLT 3.0
 
 Created to be the backend of https://github.com/joaovitorbf/xslt.info
+
+```diff
+- ATTENTION! THE FULL SERVER IS INSECURE IF YOU ALLOW USER INPUT! XSLT INJECTION CAN RUN ARBITRARY CODE INSIDE THE CONTAINER!
+- IF YOU NEED DYNAMIC XSLT, CONSIDER USING THE COMPILEONLY VERSION AND PROCESSING IT CLIENTISDE VIA SAXONJS
+```
 
 To run server on localhost (replace port):
 
@@ -33,8 +35,4 @@ fetch("localhost:8080/transform", requestOptions)
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
-```
-
-```diff
-- ATTENTION! THIS SERVER IS INSECURE IF YOU ALLOW USER INPUT! XSLT INJECTION CAN RUN ARBITRARY CODE INSIDE THE CONTAINER!
 ```
