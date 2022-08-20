@@ -4,6 +4,8 @@ import fs from 'fs'
 import { exec } from 'child_process'
 import { v4 as uuidv4 } from 'uuid';
 
+console.log('[xslt] START')
+
 const fastify = Fastify({
     logger: false
 })
@@ -54,7 +56,7 @@ fastify.post('/transform', function (req, reply) {
     })
 })
 
-fastify.listen({ port: 8080 }, function (err, address) {
+fastify.listen({ host: '0.0.0.0', port: 8080 }, function (err, address) {
     if (err) {
         fastify.log.error(err)
         process.exit(1)
