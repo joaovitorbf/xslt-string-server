@@ -20,9 +20,9 @@ if (!fs.existsSync('cache')) {
 }
 
 function clear(uuid) {
-    fs.unlinkSync(`cache/${uuid}.xml`)
-    fs.unlinkSync(`cache/${uuid}.xslt`)
-    fs.unlinkSync(`cache/${uuid}.out`)
+    try { fs.unlinkSync(`cache/${uuid}.xml`) } catch (e) { }
+    try { fs.unlinkSync(`cache/${uuid}.xslt`) } catch (e) { }
+    try { fs.unlinkSync(`cache/${uuid}.out`) } catch (e) { }
 }
 
 fastify.post('/transform', function (req, reply) {
@@ -35,7 +35,7 @@ fastify.post('/transform', function (req, reply) {
     fs.writeFile(`cache/${uuid}.xml`, req.body.xml, (err, file) => {
         fs.writeFile(`cache/${uuid}.xslt`, req.body.xslt, (err, file) => {
             if (err) {
-                fs.unlinkSync(`cache/${uuid}.xml`)
+                clear()
                 return;
             }
             exec(`npx xslt3 -s:"cache/${uuid}.xml" -xsl:"cache/${uuid}.xslt" -o:"cache/${uuid}.out"`, (error, stout, stderr) => {
