@@ -40,8 +40,8 @@ fastify.post('/transform', function (req, reply) {
             }
             exec(`npx xslt3 -s:"cache/${uuid}.xml" -xsl:"cache/${uuid}.xslt" -o:"cache/${uuid}.out"`, (error, stout, stderr) => {
                 if (error) {
-                    reply.status = 400
-                    reply.send(error.message.split('\n').splice(3).join('\n').trim())
+                    reply.statusCode = 400
+                    reply.send(stderr.split('\n').splice(2).join('\n').trim())
                     clear(uuid)
                     return;
                 }
