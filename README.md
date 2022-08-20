@@ -1,3 +1,6 @@
+```diff
+- ATTENTION! THIS SERVER IS INSECURE IF YOU ALLOW USER INPUT! XSLT INJECTION CAN RUN ARBITRARY CODE INSIDE THE CONTAINER!
+```
 # xslt-string-server
 Transform XML using SaxonJS's XSLT 3.0
 
@@ -30,4 +33,8 @@ fetch("localhost:8080/transform", requestOptions)
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
+```
+
+```diff
+- ATTENTION! THIS SERVER IS INSECURE IF YOU ALLOW USER INPUT! XSLT INJECTION CAN RUN ARBITRARY CODE INSIDE THE CONTAINER!
 ```
