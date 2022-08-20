@@ -39,7 +39,7 @@ fastify.post('/transform', function (req, reply) {
         exec(`npx xslt3 -xsl:"cache/${uuid}.xslt" -export:"cache/${uuid}.sef.json" -nogo`, (error, stout, stderr) => {
             if (error) {
                 reply.statusCode = 400
-                reply.send(stderr.split('\n').splice(2).join('\n').trim())
+                reply.send(stderr.trim())
                 clear(uuid)
                 return;
             }
