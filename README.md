@@ -8,7 +8,7 @@ Created to be the backend of https://github.com/joaovitorbf/xslt.info
 - IF YOU NEED DYNAMIC XSLT, CONSIDER USING THE COMPILEONLY VERSION AND PROCESSING IT CLIENTISDE VIA SAXONJS
 ```
 
-To run server on localhost (replace port):
+To run the NOT RECOMMENDED full server on localhost (replace port):
 
 ```
 docker run -d -p 127.0.0.1:[port]:8080 joaovitorbf/xslt-string-server
